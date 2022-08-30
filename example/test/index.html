@@ -32,6 +32,10 @@
         const loadBar = document.getElementById('load-bar');
         loadBar.style.width = detail.progress + '%';
       });
+
+      window.addEventListener('flamethrower:router:changed', ({ detail }) => {
+        console.log('History Changed:', detail);
+      });
     </script>
   </body>
 </html>

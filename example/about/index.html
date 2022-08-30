@@ -40,9 +40,8 @@
     <div id="keep" flamethrower-preserve>
       <article>
         <p>This text should be preserved when starting from about</p>
-      </article> 
+      </article>
     </div>
-
 
     <script type="module">
       const router = window.flamethrower;
@@ -76,6 +75,10 @@
         const loadBar = document.getElementById('load-bar');
         console.log('Fetch Progress:', detail);
         loadBar.style.width = detail.progress + '%';
+      });
+
+      window.addEventListener('flamethrower:router:changed', ({ detail }) => {
+        console.log('History Changed:', detail);
       });
     </script>
   </body>

@@ -29,3 +29,10 @@ export type FetchProgressEvent = {
   /** Number of bytes total (Content-Length header) */
   length: number;
 };
+
+export type HistoryChangedEvent = {
+  /** The state object associated with the history state */
+  state: object;
+  /** The URL of the history entry */
+  url: string;
+};

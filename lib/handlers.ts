@@ -1,4 +1,4 @@
-import { RouteChangeData } from './interfaces';
+import { RouteChangeData, HistoryChangedEvent } from './interfaces';
 
 /**
  * @param  {} type
@@ -26,6 +26,14 @@ export function fullURL(url?: string): string {
 export function addToPushState(url: string): void {
   if (!window.history.state || window.history.state.url !== url) {
     window.history.pushState({ url }, 'internalLink', url);
+    window.dispatchEvent(
+      new CustomEvent<HistoryChangedEvent>('flamethrower:router:changed', {
+        detail: {
+          state: { url },
+          url: url,
+        }
+      })
+    );
   }
 }
 

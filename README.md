@@ -46,6 +46,7 @@ router.forward();
 window.addEventListener('flamethrower:router:fetch', showLoader);
 window.addEventListener('flamethrower:router:fetch-progress', updateProgressBar);
 window.addEventListener('flamethrower:router:end', hideLoader);
+window.addEventListener('flamethrower:router:changed', alterPage);
 
 // Disable it
 router.enabled = false;
